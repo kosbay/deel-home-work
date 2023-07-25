@@ -1,8 +1,9 @@
-# AutoComplete Component
+# Part 1
+## AutoComplete Component
 
 The `AutoComplete` component is a reusable React component that provides an autocomplete functionality for search inputs. It allows users to input text, and it will display a list of suggestions based on the user's input. The suggestions are fetched from a provided search query function, and the component provides a debounced search to optimize API calls.
 
-## Props
+### Props
 
 The `AutoComplete` component accepts the following props:
 
@@ -20,3 +21,8 @@ The `AutoComplete` component accepts the following props:
 ---
 
 Please note that in the above documentation, replace `YourItemType` with the type of items you expect in the suggestions list.
+
+### Example
+
+Example of how to use `AutoComplete` is shown on `App` component.
+In the example the App component utilizes the AutoComplete component to enable users to discover animals. The searchQuery function is passed as a prop to the AutoComplete component to fetch animal data based on the user's input. When the user clicks on a suggestion item, the details of the selected animal will be displayed below the search input.
