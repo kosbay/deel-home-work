@@ -58,7 +58,7 @@ In the example the App component utilizes the AutoComplete component to enable u
 
 
 
-# Part 1
+# Part 2
 
 ## 1. What is the difference between Component and PureComponent? Give an example where it might break my app.
 
