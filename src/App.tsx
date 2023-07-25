@@ -36,7 +36,7 @@ function App() {
         onResultClick={(item) => setSelectedAnimal(item)}
         placeholder="Search for an animal"
       />
-      <div className="selected-animal">
+      <div>
         {selectedAnimal ? (
           <>
             <h2>{selectedAnimal.name}</h2>

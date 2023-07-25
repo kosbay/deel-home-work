@@ -6,24 +6,29 @@ interface AutoCompleteListBoxProps<T> {
   items: T[];
   onSelect: (item: T) => void;
   isLoading: boolean;
-  className?: string;
   searchValue: string;
+  classNames?: {
+    listBox?: string;
+    loader?: string;
+    notFound?: string;
+    listBoxItem?: string;
+  };
 }
 
 const AutoCompleteListBox = <T extends { name: string }>({
-  items, onSelect, isLoading, className, searchValue
+  items, onSelect, isLoading, classNames, searchValue
 }: AutoCompleteListBoxProps<T>) => {
   return (
-    <ul className={`${styles.listBox} ${className}`}>
+    <ul className={`${styles.listBox} ${classNames?.listBox}`}>
       { 
         (() => {
           if(isLoading) {
             return (
-              <li className={styles.loader} />
+              <li className={`${styles.loader} ${classNames?.loader}`} />
             );
           } else if(items.length === 0) {
             return (
-              <li className={styles.notFound}>
+              <li className={`${styles.notFound} ${classNames?.notFound}`}>
                 Not found
               </li>
             )
@@ -34,6 +39,7 @@ const AutoCompleteListBox = <T extends { name: string }>({
                   <li
                     key={item.name + index}
                     onClick={() => onSelect(item)}
+                    className={classNames?.listBoxItem}
                   >
                     <TextWithHighlight text={item.name} stringToHighlight={searchValue} />
                   </li>

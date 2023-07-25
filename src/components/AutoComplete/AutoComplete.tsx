@@ -15,10 +15,18 @@ interface AutoCompleteProps<T> {
   searchQuery: SearchQueryType<T>;
   onResultClick?: (item: T) => void;
   placeholder?: string;
+  classNames?: {
+    autoComplete?: string;
+    listBox?: string;
+    loader?: string;
+    notFound?: string;
+    input?: string;
+    listBoxItem?: string;
+  }
 }
 
 const AutoComplete = <T extends { name: string }>({
-  onResultClick, searchQuery, placeholder
+  onResultClick, searchQuery, placeholder, classNames
 }: AutoCompleteProps<T>) => {
   const autocompleteRef = useRef<HTMLDivElement>(null);
 
@@ -71,12 +79,13 @@ const AutoComplete = <T extends { name: string }>({
   };
 
   return (
-    <div ref={autocompleteRef} className={styles.autoComplete}>
+    <div ref={autocompleteRef} className={`${styles.autoComplete} ${classNames?.autoComplete}`}>
       <Input
         onSearch={handleSearch}
         onChange={handleChange}
         value={searchValue}
         placeholder={placeholder}
+        className={classNames?.input}
       />
       {showListBox && (
         <AutoCompleteListBox<T>
@@ -84,6 +93,12 @@ const AutoComplete = <T extends { name: string }>({
           onSelect={handleResultClick}
           isLoading={isLoading}
           searchValue={searchValue}
+          classNames={{
+            listBox: classNames?.listBox,
+            loader: classNames?.loader,
+            notFound: classNames?.notFound,
+            listBoxItem: classNames?.listBoxItem
+          }}
         />
       )}
     </div>
