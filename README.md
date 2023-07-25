@@ -1,4 +1,23 @@
 # Part 1
+
+## How to run the project locally
+### Install dependencies
+Install the project dependencies by running the following command:
+
+```bash
+npm install
+```
+
+### Start the development server
+
+To start the development server and run your React application, use the following command:
+
+```bash
+npm run dev
+```
+
+This will launch the development server, and you should see a message like "running at:" followed by the local development server URL (e.g., `http://localhost:3000`). Open this URL in your web browser to view your React application.
+
 ## AutoComplete Component
 
 The `AutoComplete` component is a reusable React component that provides an autocomplete functionality for search inputs. It allows users to input text, and it will display a list of suggestions based on the user's input. The suggestions are fetched from a provided search query function, and the component provides a debounced search to optimize API calls.
