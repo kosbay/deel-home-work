@@ -1,0 +1,9 @@
+.autoComplete {
+  position: relative;
+  width: 400px;
+  text-align: left;
+
+  &.open {
+    display: block;
+  }
+}
